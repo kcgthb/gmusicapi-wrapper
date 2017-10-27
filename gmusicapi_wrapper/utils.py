@@ -54,7 +54,7 @@ def _split_field_to_single_value(field):
 
 	split_field = re.match(r'(\d+)/\d+', field)
 
-	return split_field.group(1) or field
+	return split_field.group(1) if split_field is not None else field
 
 
 def _filter_comparison_fields(song):
