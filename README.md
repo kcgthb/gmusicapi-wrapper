@@ -1,20 +1,59 @@
 gmusicapi-wrapper
 =================
 
+⚠️ **DISCONTINUED SERVICE NOTICE** ⚠️
+
+**Google Play Music was shut down in December 2020 and replaced by YouTube Music. This library can no longer connect to Google Music services and is provided for archival purposes only.**
+
 A wrapper interface around [gmusicapi](https://github.com/simon-weber/Unofficial-Google-Music-API).
+
+## Status
+
+- ✅ **Local file operations** still work (scanning, filtering, metadata handling)
+- ❌ **Google Music API calls** no longer work (login, upload, download, streaming)
+- ✅ **Installation and imports** work with compatibility fixes
+- ✅ **Unit tests** pass
+
+## Migration Alternatives
+
+For active music library management, consider these alternatives:
+- [ytmusicapi](https://github.com/sigma67/ytmusicapi) - YouTube Music API
+- [spotipy](https://github.com/plamere/spotipy) - Spotify API  
+- [tidalapi](https://github.com/tamland/python-tidal) - Tidal API
 
 ## Requirements
 
-* Python 3.4+
+* Python 3.4+ (tested up to Python 3.12)
 * [gmusicapi](https://github.com/simon-weber/Unofficial-Google-Music-API)
 * [mutagen](https://bitbucket.org/lazka/mutagen)
 * ffmpeg or avconv for uploading non-mp3 files (See [here](http://unofficial-google-music-api.readthedocs.org/en/latest/usage.html#usage))
 
-## Installation
+## Installation (Local Operations Only)
 
-### Stable Release
+⚠️ **Remember: Google Music API calls will not work due to service shutdown**
 
-``pip install gmusicapi-wrapper`` or ``pip install git+https://github.com/thebigmunch/gmusicapi-wrapper``
+### For Testing/Local File Operations
+
+```bash
+pip install gmusicapi-wrapper
+```
+
+### Usage Example (Local Operations Only)
+
+```python
+import gmusicapi_wrapper
+
+# Only local file operations work
+from gmusicapi_wrapper import MusicManagerWrapper
+
+mm = MusicManagerWrapper()
+
+# This works - scan local music files
+local_songs = mm.get_local_songs('/path/to/music')
+
+# This will fail - Google Music is shut down
+# mm.login()  # ConnectionError or authentication failure
+```
 
 ### Unstable/Development
 

@@ -12,7 +12,7 @@ import tempfile
 
 import mutagen
 from gmusicapi import CallFailure
-from gmusicapi.clients import Musicmanager, OAUTH_FILEPATH
+from gmusicapi.clients import Musicmanager
 
 from .base import _BaseWrapper
 from .constants import CYGPATH_RE, GM_ID_RE
@@ -48,7 +48,7 @@ class MusicManagerWrapper(_BaseWrapper):
 
 		cls_name = type(self).__name__
 
-		oauth_cred = os.path.join(os.path.dirname(OAUTH_FILEPATH), oauth_filename + '.cred')
+		oauth_cred = os.path.join(os.path.dirname(Musicmanager.OAUTH_FILEPATH), oauth_filename + '.cred')
 
 		try:
 			if not self.api.login(oauth_credentials=oauth_cred, uploader_id=uploader_id):

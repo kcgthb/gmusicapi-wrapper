@@ -7,6 +7,9 @@ __copyright__ = 'Copyright 2016 thebigmunch <mail@thebigmunch.me>'
 
 import logging
 
+# Import compatibility fixes first
+from . import compatibility
+
 from . import constants
 from . import utils
 from .constants import SUPPORTED_PLAYLIST_FORMATS, SUPPORTED_SONG_FORMATS
